@@ -11,5 +11,6 @@ module "mc-transit" {
   insane_mode = true
   enable_transit_firenet = true
   local_as_number = var.avx_transit_asn
+  hybrid_connection = true # Ready Avx Transit for TGW connection
 }
 
