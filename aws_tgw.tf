@@ -1,3 +1,5 @@
+# Create TGWO (Orchestrated TGW)
+
 resource "aviatrix_aws_tgw" "aws_tgw" {
     tgw_name = "ue1tgw"
     account_name = var.avx_access_account

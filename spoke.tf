@@ -1,3 +1,4 @@
+# Create Aviatrix Spoke VPC and Spoke GW and attach to Aviatrix Transit
 module "mc-spoke" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version = "1.5.0"

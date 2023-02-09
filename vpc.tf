@@ -1,3 +1,4 @@
+# Create AWS VPCs using Aviatrix Useful Tools
 resource "aviatrix_vpc" "security" {
     cloud_type = 1
     account_name = var.avx_access_account

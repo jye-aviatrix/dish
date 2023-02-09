@@ -1,3 +1,4 @@
+# Define TGW Network Domains
 resource "aviatrix_aws_tgw_network_domain" "shared" {
     name = "Shared_Service_Domain"
     tgw_name = aviatrix_aws_tgw.aws_tgw.tgw_name
