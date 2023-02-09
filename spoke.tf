@@ -9,10 +9,16 @@ module "mc-spoke" {
   transit_gw = module.mc-transit.transit_gateway.gw_name
 }
 
-module "aws-linux-vm-public" {
+module "spoke_pub_vm" {
   source  = "jye-aviatrix/aws-linux-vm-public/aws"
   version = "2.0.1"
   vm_name = "${var.region_prefix}-spoke-pub"
   vpc_id = module.mc-spoke.vpc.vpc_id
+  subnet_id = module.mc-spoke.vpc.public_subnets[1].subnet_id
   key_name = var.key_name
+  use_eip = true
+}
+
+output "spoke_pub_vm" {
+  value = module.spoke_pub_vm
 }
