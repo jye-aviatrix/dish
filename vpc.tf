@@ -20,6 +20,19 @@ resource "aviatrix_vpc" "dev" {
     cidr = var.dev_vpc_cidr
 }
 
+module "dev_pub_vm" {
+  source  = "jye-aviatrix/aws-linux-vm-public/aws"
+  version = "2.0.1"
+  vm_name = "${var.region_prefix}-shared-pub"
+  vpc_id = aviatrix_vpc.dev.vpc_id
+  subnet_id = aviatrix_vpc.dev.public_subnets[1].subnet_id
+  key_name = var.key_name
+  use_eip = true
+}
+
+output "dev_pub_vm" {
+  value = module.dev_pub_vm
+}
 
 resource "aviatrix_vpc" "shared" {
     cloud_type = 1
@@ -31,5 +44,19 @@ resource "aviatrix_vpc" "shared" {
     cidr = var.shared_vpc_cidr
 }
 
+
+module "shared_pub_vm" {
+  source  = "jye-aviatrix/aws-linux-vm-public/aws"
+  version = "2.0.1"
+  vm_name = "${var.region_prefix}-shared-pub"
+  vpc_id = aviatrix_vpc.shared.vpc_id
+  subnet_id = aviatrix_vpc.shared.public_subnets[1].subnet_id
+  key_name = var.key_name
+  use_eip = true
+}
+
+output "shared_pub_vm" {
+  value = module.shared_pub_vm
+}
 
 
