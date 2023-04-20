@@ -9,7 +9,7 @@ module "mc-transit" {
   name = "${var.region_prefix}-transit"
   gw_name = "${var.region_prefix}-transit"
   insane_mode = true
-  enable_transit_firenet = true
+  enable_transit_firenet = false
   local_as_number = var.avx_transit_asn
   hybrid_connection = true # Ready Avx Transit for TGW connection
 }
